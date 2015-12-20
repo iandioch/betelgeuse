@@ -7,7 +7,7 @@ tags: ["nwerc", "programming", "competitions", "redbrick"]
 
 So I've been busy.
 
-Ive needed a blog for a while, I think tonight's the night to put the plan into motion. Right now I'm using ruhoh, because it's something I've not used before. It seems pretty cool.
+I've needed a blog for a while, I think tonight's the night to put the plan into motion. Right now I'm using ruhoh, because it's something I've not used before. It seems pretty cool.
 
 This weekend myself and my friends Stefan Kennedy and Cian Ruane were at NWERC in Linkoeping, Sweden, on the team "cat /dev/urandom >> p1.cpp". We solved 2 problems, and came 74th (out of ~99). It's no first, but we're happy enough! As far as we can tell, we solved the third most problems out of any Irish team at NWERC ever. We also beat the team DCU sent the year before last! Whoo!
 
