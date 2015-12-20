@@ -105,6 +105,7 @@ func main() {
 		}
 
 		html := strings.Replace(template, "~~~text~~~", postText, -1)
+		html = strings.Replace(html, "~~~title~~~", metaData.Title, -1)
 		//fmt.Println(html)
 
 		outFile := "site/" + strings.Replace(file, ".md", ".html", -1)
