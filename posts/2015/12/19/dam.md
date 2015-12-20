@@ -14,10 +14,6 @@ I fell in love with Drambuie in the tiniest and cutest pub I've ever been in, De
 
 Today I did the Problem Solving essays that I was putting off, and now my work is done for this semester. I have two exams in the new year, and that's me.
 
-```
-echo("help me please");
-```
-
 I'm learning Go! It's very cool. I'm trying to do one Project Euler problem every day in Go, and then put that on my Github. That'll bump up my git stats, teach me a bit more about git, and let me get to grips with Go. 
 
 I went to Jimmy Carr with Tate last week, and next week I'm going to a concert in Dublin with the cousins. Busy! Happy. I need to get home between now and then, think I'll head on Sunday. In the meantime, I'm going to try and set up my website, and blog, properly. I'm thinking Vagrant, nginx and a little script to pull blogposts from Github. Ruhoh is cool, but it's Ruby, and I can't stand the fact that Ruby spells its constructor functions, "initialize", with a Z. We'll see how my solution turns out. 

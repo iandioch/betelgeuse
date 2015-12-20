@@ -49,6 +49,15 @@ type MetaData struct {
 	Title string
 	Tags []string `yaml:",flow"`
 	Categories []string `yaml:",flow"`
+	Id int // automagically generated
+}
+
+type PostData struct {
+	Meta MetaData // the metadata of the post (parsed from the YAML)
+	RawContent string // the contents of the original file
+	Lines []string // the raw file split into lines
+	ContentLines []string // the lines of the file without the metadata, but with the inline code
+	ParsedContent string // the file without any inline code or metadata (ie. the finished post)
 }
 
 func decodeYAMLMetaData(raw string) (MetaData, interface{}) {
@@ -84,6 +93,55 @@ func main() {
 	fmt.Println(files)
 
 	postTemplate := readFile("templates/posts.html")
+
+	allPostData := make([]PostData, len(files))
+
+	for index, file := range files {
+		raw := readFile(file)
+		lines := strings.Split(raw, "\n")
+
+		allPostData[index] = PostData{MetaData{"not parsed", []string{"not parsed"}, []string{"not parsed"}, index}, raw, lines, []string{"not parsed"}, "not parsed"}
+	}
+
+	for index, entry := range allPostData {
+		// parse out the metadata
+
+		postMeta := ""
+		numMeta := 0
+		prevLineMetaTag := true
+
+		unParsedLines := []string{}
+
+		for _, line := range entry.Lines {
+			if trimString(line) == "---" {
+				numMeta ++
+				prevLineMetaTag = true
+				continue
+			}
+			if numMeta % 2 == 0 {
+				if len(line) == 0 && prevLineMetaTag {
+					continue
+				}
+				unParsedLines = append(unParsedLines, line)
+				prevLineMetaTag = false
+			}else{
+
+			}
+		}
+
+		entry.ContentLines = unParsedLines
+
+		metaData, err := decodeYAMLMetaData(postMeta)
+
+		if err != nil {
+			fmt.Println("error decoding YAML metadata:", err)
+
+		}
+
+		entry.Meta = metaData
+		
+		fmt.Println(index, entry.Meta.Title)
+	}
 
 	for _, file := range files {
 		template := postTemplate
