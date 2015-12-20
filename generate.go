@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"strings"
 	"gopkg.in/yaml.v1"
+	"github.com/robertkrimen/otto"
 )
 
 func getFilesInDirRecursive(dirPath string) []string {
@@ -123,4 +124,6 @@ func main() {
 			fmt.Println("File '" + outFile + "' written.")
 		}
 	}
+
+	_ = otto.New()
 }
