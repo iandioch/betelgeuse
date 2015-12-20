@@ -58,6 +58,26 @@ func decodeYAMLMetaData(raw string) (MetaData, interface{}) {
 	return r, err
 }
 
+func runJavascript(script string, vars map[string]interface{}) (string, interface{}) {
+	vm := otto.New()
+
+	response := ""
+
+	vm.Set("echo", func(call otto.FunctionCall) otto.Value {
+	    fmt.Printf("Script echo: %s\n", call.Argument(0).String())
+	    response += call.Argument(0).String()
+	    return otto.Value{}
+	})
+
+	for k, v := range vars {
+		vm.Set(k, v)
+	}
+
+	_, err := vm.Run(script)
+
+	return response, err
+}
+
 func main() {
 	files := getFilesInDirRecursive("posts")
 
@@ -75,11 +95,36 @@ func main() {
 		postMeta := ""
 		numMeta := 0 // the current number of --- lines passed
 		prevLineMetaTag := true // allow for some empty lines to be after the --- tags
+		numCode := 0
+		currCode := ""
 
 		for _, line := range lines {
 			if trimString(line) == "---" {
 				numMeta ++
 				prevLineMetaTag = true
+				continue
+			}else if trimString(line) == "```" {
+				numCode ++
+				if numCode % 2 == 1{
+					currCode = "" // new bit of code
+				}else {
+					// code bit just ended, run it and insert its result to the document
+
+					response, err := runJavascript(currCode, map[string]interface{}{"title":"FILLER TITLE"})
+					if err != nil {
+						fmt.Println(err)
+						postText += err.(string)
+					} else {
+						fmt.Println(response)
+						postText += response
+					}
+
+				}
+				continue
+			}
+
+			if numCode % 2 == 1 {
+				currCode += line
 				continue
 			}
 			if numMeta % 2 == 0 {
