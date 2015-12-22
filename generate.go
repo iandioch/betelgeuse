@@ -49,10 +49,11 @@ type MetaData struct {
 	Title string
 	Tags []string `yaml:",flow"`
 	Categories []string `yaml:",flow"`
-	Id int // automagically generated
+	Id int `yaml: ",omitempty"` // automagically generated
 }
 
 type PostData struct {
+	File string // the path to the file
 	Meta MetaData // the metadata of the post (parsed from the YAML)
 	RawContent string // the contents of the original file
 	Lines []string // the raw file split into lines
@@ -67,7 +68,7 @@ func decodeYAMLMetaData(raw string) (MetaData, interface{}) {
 	return r, err
 }
 
-func runJavascript(script string, vars map[string]interface{}) (string, interface{}) {
+func runJavascript(script string, currId int, posts []PostData) (string, interface{}) {
 	vm := otto.New()
 
 	response := ""
@@ -78,9 +79,8 @@ func runJavascript(script string, vars map[string]interface{}) (string, interfac
 	    return otto.Value{}
 	})
 
-	for k, v := range vars {
-		vm.Set(k, v)
-	}
+	vm.Set("posts", posts)
+	vm.Set("currId", currId)
 
 	_, err := vm.Run(script)
 
@@ -92,7 +92,9 @@ func main() {
 
 	fmt.Println(files)
 
-	postTemplate := readFile("templates/posts.html")
+	//postTemplate := readFile("templates/posts.html")
+
+	postGenerator := readFile("templates/posts.js")
 
 	allPostData := make([]PostData, len(files))
 
@@ -100,16 +102,14 @@ func main() {
 		raw := readFile(file)
 		lines := strings.Split(raw, "\n")
 
-		allPostData[index] = PostData{MetaData{"not parsed", []string{"not parsed"}, []string{"not parsed"}, index}, raw, lines, []string{"not parsed"}, "not parsed"}
+		allPostData[index] = PostData{file, MetaData{"not parsed", []string{"not parsed"}, []string{"not parsed"}, index}, raw, lines, []string{"not parsed"}, "not parsed"}
 	}
 
 	for index, entry := range allPostData {
 		// parse out the metadata
-
 		postMeta := ""
 		numMeta := 0
 		prevLineMetaTag := true
-
 		unParsedLines := []string{}
 
 		for _, line := range entry.Lines {
@@ -125,25 +125,92 @@ func main() {
 				unParsedLines = append(unParsedLines, line)
 				prevLineMetaTag = false
 			}else{
-
+				postMeta += line + "\n"
 			}
 		}
 
 		entry.ContentLines = unParsedLines
 
+		fmt.Println(postMeta)
 		metaData, err := decodeYAMLMetaData(postMeta)
 
 		if err != nil {
 			fmt.Println("error decoding YAML metadata:", err)
-
 		}
 
+		//entry.Meta = metaData
+		metaData.Id = index
+
 		entry.Meta = metaData
-		
-		fmt.Println(index, entry.Meta.Title)
+		fmt.Println(index, entry.Meta)
+
+		allPostData[index] = entry
 	}
 
-	for _, file := range files {
+	for index, value := range allPostData {
+		numCode := 0
+		currCode := ""
+		postText := ""
+
+		/*variables := make(map[string]interface{})
+		variables["id"] = index
+		variables["curr"] = value*/
+
+
+		for _, line := range value.ContentLines {
+			if trimString(line) == "```" {
+				numCode ++
+				if numCode % 2 == 1 {
+					currCode = "" // new bit of code
+				} else {
+					// code bit just ended, run it and insert its result to the document
+					response, err := runJavascript(currCode, index, allPostData)
+					if err != nil {
+						fmt.Println(err)
+						postText += err.(string)
+					} else {
+						fmt.Println(response)
+						postText += response
+					}
+				}
+				continue
+			}
+
+			if numCode % 2 == 1 {
+				currCode += line + "\n"
+				continue
+			}else{
+				postText += line + "<br />"
+			}
+		}
+
+		allPostData[index].ParsedContent = postText
+	}
+
+	for index, value := range allPostData {
+		file := value.File
+		html, err := runJavascript(postGenerator, index, allPostData)
+		if err != nil {
+			panic(err)
+			return
+		}
+		//html := value.ParsedContent
+		outFile := "site/" + strings.Replace(file, ".md", ".html", -1)
+
+		outDir := outFile[0:strings.LastIndex(outFile, "/")]
+		//fmt.Println(outDir)
+		err = os.MkdirAll(outDir, 0777)
+		if err != nil {
+			fmt.Println(err)
+		}
+		err = ioutil.WriteFile(outFile, []byte(html), 0666)
+		if err != nil {
+			fmt.Println(err)
+		}else{
+			fmt.Println("File '" + outFile + "' written.")
+		}
+	}
+	/*for _, file := range files {
 		template := postTemplate
 
 		postData := readFile(file)
@@ -202,7 +269,7 @@ func main() {
 			fmt.Println("error decoding YAML metadata:", err)
 
 		}
-		fmt.Println("---\n", postMeta, "\n", metaData, "\n---")
+		//fmt.Println("---\n", postMeta, "\n", metaData, "\n---")
 
 		for i := range metaData.Tags {
 			fmt.Println("tag:", metaData.Tags[i])
@@ -226,7 +293,7 @@ func main() {
 		}else{
 			fmt.Println("File '" + outFile + "' written.")
 		}
-	}
+	}*/
 
-	_ = otto.New()
+	//_ = otto.New()
 }
