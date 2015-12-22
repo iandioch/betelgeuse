@@ -4,6 +4,7 @@ echo("<body>");
 echo("<h1>");
 echo(posts[currId].Meta.Title);
 echo("</h1>");
+echo("<h3>" + posts[currId].Location + "</h3>");
 echo("<p>");
 echo(posts[currId].ParsedContent);
 echo("</p>")
