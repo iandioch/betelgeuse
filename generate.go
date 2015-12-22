@@ -7,6 +7,7 @@ import (
 	"strings"
 	"gopkg.in/yaml.v1"
 	"github.com/robertkrimen/otto"
+	"strconv"
 )
 
 func getFilesInDirRecursive(dirPath string) []string {
@@ -52,6 +53,12 @@ type MetaData struct {
 	Id int `yaml: ",omitempty"` // automagically generated
 }
 
+type DateData struct {
+	Year int
+	Month int
+	Day int
+}
+
 type PostData struct {
 	File string // the path to the file
 	Meta MetaData // the metadata of the post (parsed from the YAML)
@@ -60,6 +67,7 @@ type PostData struct {
 	ContentLines []string // the lines of the file without the metadata, but with the inline code
 	ParsedContent string // the file without any inline code or metadata (ie. the finished post)
 	Location string // the location of the resultant html file
+	Date DateData
 }
 
 func decodeYAMLMetaData(raw string) (MetaData, interface{}) {
@@ -103,7 +111,7 @@ func main() {
 		raw := readFile(file)
 		lines := strings.Split(raw, "\n")
 
-		allPostData[index] = PostData{file, MetaData{"not parsed", []string{"not parsed"}, []string{"not parsed"}, index}, raw, lines, []string{"not parsed"}, "not parsed", "not parsed"}
+		allPostData[index] = PostData{file, MetaData{"not parsed", []string{"not parsed"}, []string{"not parsed"}, index}, raw, lines, []string{"not parsed"}, "not parsed", "not parsed", DateData{-1, -1, -1}}
 	}
 
 	for index, entry := range allPostData {
@@ -149,44 +157,21 @@ func main() {
 	}
 
 	for index, value := range allPostData {
-		numCode := 0
-		currCode := ""
 		postText := ""
 
-		/*variables := make(map[string]interface{})
-		variables["id"] = index
-		variables["curr"] = value*/
-
-
 		for _, line := range value.ContentLines {
-			if trimString(line) == "```" {
-				numCode ++
-				if numCode % 2 == 1 {
-					currCode = "" // new bit of code
-				} else {
-					// code bit just ended, run it and insert its result to the document
-					response, err := runJavascript(currCode, index, allPostData)
-					if err != nil {
-						fmt.Println(err)
-						postText += err.(string)
-					} else {
-						fmt.Println(response)
-						postText += response
-					}
-				}
-				continue
-			}
-
-			if numCode % 2 == 1 {
-				currCode += line + "\n"
-				continue
-			}else{
-				postText += line + "<br />"
-			}
+			postText += line + "<br />"
 		}
 
 		allPostData[index].ParsedContent = postText
 		allPostData[index].Location = strings.Replace(value.File, ".md", ".html", -1)
+
+		dateParts := strings.Split(allPostData[index].Location, "/")
+		fmt.Println(dateParts)
+		year, _ := strconv.Atoi(dateParts[1])
+		month, _ := strconv.Atoi(dateParts[2])
+		day, _ := strconv.Atoi(dateParts[3])
+		allPostData[index].Date = DateData{year, month, day}
 	}
 
 	for index, value := range allPostData {
