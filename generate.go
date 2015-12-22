@@ -59,6 +59,7 @@ type PostData struct {
 	Lines []string // the raw file split into lines
 	ContentLines []string // the lines of the file without the metadata, but with the inline code
 	ParsedContent string // the file without any inline code or metadata (ie. the finished post)
+	Location string // the location of the resultant html file
 }
 
 func decodeYAMLMetaData(raw string) (MetaData, interface{}) {
@@ -102,7 +103,7 @@ func main() {
 		raw := readFile(file)
 		lines := strings.Split(raw, "\n")
 
-		allPostData[index] = PostData{file, MetaData{"not parsed", []string{"not parsed"}, []string{"not parsed"}, index}, raw, lines, []string{"not parsed"}, "not parsed"}
+		allPostData[index] = PostData{file, MetaData{"not parsed", []string{"not parsed"}, []string{"not parsed"}, index}, raw, lines, []string{"not parsed"}, "not parsed", "not parsed"}
 	}
 
 	for index, entry := range allPostData {
@@ -185,17 +186,18 @@ func main() {
 		}
 
 		allPostData[index].ParsedContent = postText
+		allPostData[index].Location = strings.Replace(value.File, ".md", ".html", -1)
 	}
 
 	for index, value := range allPostData {
-		file := value.File
+		//file := value.File
 		html, err := runJavascript(postGenerator, index, allPostData)
 		if err != nil {
 			panic(err)
 			return
 		}
 		//html := value.ParsedContent
-		outFile := "site/" + strings.Replace(file, ".md", ".html", -1)
+		outFile := "site/" + value.Location
 
 		outDir := outFile[0:strings.LastIndex(outFile, "/")]
 		//fmt.Println(outDir)
