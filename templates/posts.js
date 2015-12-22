@@ -15,7 +15,7 @@ if(currId < posts.length - 1){
 	echo("<p>Next post: <a href=\"../../../../" + posts[currId+1].Location +"\">" + posts[currId+1].Meta.Title + "</a></p>")
 }
 if(posts[currId].Meta.Categories.length > 0){
-	echo("<p>This entry was posted under:");
+	echo("<p>This entry was posted on " + posts[currId].Date.Day + "/" + posts[currId].Date.Month +"/" + posts[currId].Date.Year + " in the following categories:");
 	echo("<ul>");
 	for (var i = 0; i < posts[currId].Meta.Categories.length; i ++) {
 		echo("<li>" + posts[currId].Meta.Categories[i] + "</li>");
