@@ -8,6 +8,12 @@ echo("<h3>" + posts[currId].Location + "</h3>");
 echo("<p>");
 echo(posts[currId].ParsedContent);
 echo("</p>")
+if(currId > 0){
+	echo("<p>Previous post: <a href=\"../../../../" + posts[currId-1].Location +"\">" + posts[currId-1].Meta.Title + "</a></p>")
+}
+if(currId < posts.length - 1){
+	echo("<p>Next post: <a href=\"../../../../" + posts[currId+1].Location +"\">" + posts[currId+1].Meta.Title + "</a></p>")
+}
 if(posts[currId].Meta.Categories.length > 0){
 	echo("<p>This entry was posted under:");
 	echo("<ul>");
