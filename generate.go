@@ -212,6 +212,19 @@ func main() {
 			fmt.Println("File '" + outFile + "' written.")
 		}
 	}
+
+	indexGenerator := readFile("templates/index.js");
+	html, err := runJavascript(indexGenerator, -1, allPostData);
+	if err != nil {
+		panic(err);
+		return;
+	}
+	err = ioutil.WriteFile("site/index.html", []byte(html), 0666);
+	if err != nil {
+		panic(err);
+		return;
+	}
+
 	/*for _, file := range files {
 		template := postTemplate
 
