@@ -7,5 +7,14 @@ echo("</h1>");
 echo("<p>");
 echo(posts[currId].ParsedContent);
 echo("</p>")
+if(posts[currId].Meta.Categories.length > 0){
+	echo("<p>This entry was posted under:");
+	echo("<ul>");
+	for (var i = 0; i < posts[currId].Meta.Categories.length; i ++) {
+		echo("<li>" + posts[currId].Meta.Categories[i] + "</li>");
+	}
+	echo("</ul>");
+	echo("</p>");
+}
 echo("</body>");
 echo("</html>");
