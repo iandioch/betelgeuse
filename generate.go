@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v1"
 	"github.com/robertkrimen/otto"
 	"strconv"
+	"github.com/russross/blackfriday"
 )
 
 func getFilesInDirRecursive(dirPath string) []string {
@@ -160,10 +161,10 @@ func main() {
 		postText := ""
 
 		for _, line := range value.ContentLines {
-			postText += line + "<br />"
+			postText += line + "\n"
 		}
 
-		allPostData[index].ParsedContent = postText
+		allPostData[index].ParsedContent = string(blackfriday.MarkdownBasic([]byte(postText)))
 		allPostData[index].Location = strings.Replace(value.File, ".md", ".html", -1)
 
 		dateParts := strings.Split(allPostData[index].Location, "/")
