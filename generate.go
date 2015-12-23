@@ -229,11 +229,30 @@ func main() {
 			panic(err)
 			return
 		}
-		//html := value.ParsedContent
 		outFile := "site/categories/" + category + ".html"
 
 		outDir := outFile[0:strings.LastIndex(outFile, "/")]
-		//fmt.Println(outDir)
+		err = os.MkdirAll(outDir, 0777)
+		if err != nil {
+			fmt.Println(err)
+		}
+		err = ioutil.WriteFile(outFile, []byte(html), 0666)
+		if err != nil {
+			fmt.Println(err)
+		}else{
+			fmt.Println("File '" + outFile + "' written.")
+		}
+	}
+
+	for tag, posts := range tags {
+		html, err := runJavascript(tagPageGenerator, -1, posts)
+		if err != nil {
+			panic(err)
+			return
+		}
+		outFile := "site/tags/" + tag + ".html"
+
+		outDir := outFile[0:strings.LastIndex(outFile, "/")]
 		err = os.MkdirAll(outDir, 0777)
 		if err != nil {
 			fmt.Println(err)
