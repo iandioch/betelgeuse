@@ -18,4 +18,4 @@ I want to create a simple and easy to use blog system for myself. I chose Go for
 
 ## Where
 
-The blog will be live at http://mycode.doesnot.run as soon as I get my act together.
+A version of the blog is live at http://mycode.doesnot.run.
