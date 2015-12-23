@@ -105,6 +105,8 @@ func main() {
 	//postTemplate := readFile("templates/posts.html")
 
 	postGenerator := readFile("templates/posts.js")
+	tagPageGenerator := readFile("templates/tag.js")
+	categoryPageGenerator := readFile("templates/category.js")
 
 	allPostData := make([]PostData, len(files))
 
@@ -198,6 +200,53 @@ func main() {
 			fmt.Println("File '" + outFile + "' written.")
 		}
 	}
+
+	categories := make(map[string][]PostData)
+	tags := make(map[string][]PostData)
+
+	for _, val := range allPostData {
+		for _, cat := range val.Meta.Categories {
+			_, ok := categories[cat]
+			if ok {
+				categories[cat] = append(categories[cat], val)
+			} else {
+				categories[cat] = []PostData{val}
+			}
+		}
+		for _, tag := range val.Meta.Tags {
+			_, ok := tags[tag]
+			if ok {
+				tags[tag] = append(tags[tag], val)
+			} else {
+				tags[tag] = []PostData{val}
+			}
+		}
+	}
+
+	for category, posts := range categories {
+		html, err := runJavascript(categoryPageGenerator, -1, posts)
+		if err != nil {
+			panic(err)
+			return
+		}
+		//html := value.ParsedContent
+		outFile := "site/categories/" + category + ".html"
+
+		outDir := outFile[0:strings.LastIndex(outFile, "/")]
+		//fmt.Println(outDir)
+		err = os.MkdirAll(outDir, 0777)
+		if err != nil {
+			fmt.Println(err)
+		}
+		err = ioutil.WriteFile(outFile, []byte(html), 0666)
+		if err != nil {
+			fmt.Println(err)
+		}else{
+			fmt.Println("File '" + outFile + "' written.")
+		}
+	}
+
+	fmt.Println(tagPageGenerator)
 
 	indexGenerator := readFile("templates/index.js");
 	html, err := runJavascript(indexGenerator, -1, allPostData);
