@@ -1,0 +1,21 @@
+body{
+	background: #EEE
+}
+
+h1, h2, h3, h4, h5, h6, p, li{
+	color: #000;
+	font-family: Arial;
+}
+
+a{
+	color: #21b7a3;
+}
+
+a:visited{
+	color: #21b758;
+}
+
+a:hover{
+	color: #2180b7;
+}
+

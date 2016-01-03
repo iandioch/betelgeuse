@@ -1,5 +1,5 @@
 echo("<!doctype HTML>")
-echo("<html><head><meta charset=\"utf-8\"/><title>Noah's Blog</title></head>");
+echo("<html><head><meta charset=\"utf-8\"/><title>Noah's Blog</title><link rel=\"stylesheet\" type=\"text/css\" href=\"../styles/stylesheet.css\"></head>");
 echo("<body>");
 echo("<h1>Noah's Blog</h1>");
 echo("<p>Recent posts:</p>");
