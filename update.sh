@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/betelgeuse/
+cd /var/www/betelgeuse/
 git fetch
 git pull
 go run generate.go
