@@ -1,5 +1,5 @@
 echo("<!doctype HTML>")
-echo("<html><head><meta charset=\"utf-8\"/><title>Noah's Blog</title></head>");
+echo("<html><head><meta charset=\"utf-8\"/><title>Noah's Blog</title><link rel=\"stylesheet\" type=\"text/css\" href=\"../../styles/stylesheet.css\"></head>");
 echo("<body>");
 echo("<ul>");
 for(var i = posts.length-1; i > posts.length-11 && i >= 0; i --){

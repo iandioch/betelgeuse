@@ -1,5 +1,5 @@
 echo("<!doctype HTML>")
-echo("<html><head><meta charset=\"utf-8\"/><title>" + posts[currId].Meta.Title + "</title></head>");
+echo("<html><head><meta charset=\"utf-8\"/><title>" + posts[currId].Meta.Title + "</title><link rel=\"stylesheet\" type=\"text/css\" href=\"../../../../../styles/stylesheet.css\"></head>");
 echo("<body>");
 echo("<h1>");
 echo(posts[currId].Meta.Title);
