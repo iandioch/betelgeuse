@@ -7,7 +7,7 @@ tags: ["programming", "project euler", "linux", "language"]
 
 <img src="http://images.huffingtonpost.com/2015-12-15-1450164883-1061198-2016yay.png" style="width:50%" alt="A simple stock image lovingly stolen from HuffPost"></img>
 
-(*A simple stock image lovingly stolen from HuffPost*)
+<div class="img-caption">A simple stock image lovingly stolen from HuffPost</div>
 
 
 -	Yesterday I bought a little Asus netbook in a second hand shop in Cork. I'm going to install Arch on it, and go full CLI; no GUI at all. The installation will (and has already started to) teach me a lot about Linux/UNIX and OSes in general. Using just the command line will further my learning of Linux, and push me into Vim and the like more. Because the laptop is so small, it will probably be the one I take when I go out and about or go travelling. This will fit in with [Matthew Might's words of advice](http://matt.might.net/articles/productivity-tips-hints-hacks-tricks-for-grad-students-academics/):

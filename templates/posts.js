@@ -1,10 +1,10 @@
 echo("<!doctype HTML>")
-echo("<html><head><meta charset=\"utf-8\"/><title>" + posts[currId].Meta.Title + "</title><link rel=\"stylesheet\" type=\"text/css\" href=\"../../../../../styles/stylesheet.css\"></head>");
+echo("<html><head><meta charset=\"utf-8\"/><title>" + posts[currId].Meta.Title + "</title><link href='https://fonts.googleapis.com/css?family=Slabo+27px&subset=latin,latin-ext' rel='stylesheet' type='text/css'><link rel=\"stylesheet\" type=\"text/css\" href=\"../../../../../styles/stylesheet.css\"></head>");
 echo("<body>");
-echo("<h1>");
-echo(posts[currId].Meta.Title);
-echo("</h1>");
-echo("<div class=\"post-content\"><p>");
+echo("<div class=\"title\"><h1>");
+echo(posts[currId].Meta.Title.toUpperCase());
+echo("</h1></div>");
+echo("<div class=\"page-content\"><p>");
 echo(posts[currId].ParsedContent);
 echo("</p></div>");
 echo("<div class=\"post-links\">");
@@ -16,7 +16,7 @@ if(currId < posts.length - 1){
 }
 echo("</div>");
 if(posts[currId].Meta.Categories.length > 0){
-	echo("<div class=\"footer-meta\">");
+	echo("<div class=\"footer\">");
 	echo("<p>This entry was posted on " + posts[currId].Date.Day + "/" + posts[currId].Date.Month +"/" + posts[currId].Date.Year + " in the following categories:");
 	echo("<ul>");
 	for (var i = 0; i < posts[currId].Meta.Categories.length; i ++) {

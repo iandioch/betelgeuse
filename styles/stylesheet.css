@@ -1,10 +1,11 @@
 body{
-	background: #EEE
+	background: #555;
+	text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6, p, li{
 	color: #000;
-	font-family: Arial;
+	font-family: 'Slabo 27px', serif;
 }
 
 a{
@@ -19,3 +20,65 @@ a:hover{
 	color: #2180b7;
 }
 
+.page-content {
+	padding: 20px;
+	width: 70%;
+
+	margin-left: auto;
+	margin-right: auto;
+	background: #FFF;
+	text-align: justify;
+	/*border-radius: 8px;*/
+}
+
+.page-content img{
+	width: 50%;
+	text-align: center;
+	margin-left: 25%;
+}
+
+.img-caption {
+	margin-left: 25%;
+	width: 50%;
+	text-align: center;
+	font-size: 0.75em;
+	font-style: italic;
+}
+
+.page-content blockquote {
+	font-style: italic;
+	text-align: center;
+	font-size: 1.15em;
+}
+
+.title {
+	width: 70%;
+	margin: auto;
+	background: #FFF;
+	padding: 1px 20px 1px 20px;
+	margin-bottom: 10px;
+	text-align: left;
+	font-size: 1em;
+	font-weight: bold;
+	line-height: 1.5em;
+}
+
+.post-links {
+	background: #FFF;
+	font-size: 1em;
+	text-align: center;
+	width: 70%;
+	margin: auto;
+	margin-top: 10px;
+	padding: 1px 20px 1px 20px;
+}
+
+.footer {
+	background: #FFF;
+	width: 70%;
+	margin: auto;
+	margin-top: 10px;
+	padding: 1px 20px 1px 20px;
+	font-size: 1em;
+	text-align: center;
+}
