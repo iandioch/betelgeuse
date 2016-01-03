@@ -1,7 +1,7 @@
 ---
 title: CPSSD First Semester
 categories: ["updates", "advice"]
-tags: ["cpssd", "learning"]
+tags: ["cpssd", "linux", "redbrick", "testing"]
 ---
 I've just finished the first semester of my university course [Computational Problem Solving & Software Development](http://www.computing.dcu.ie/undergraduate/pssd/computational-problem-solving-software-development-cpssd) (CPSSD) at [Dublin City University](http://dcu.ie). I loved it. However, the course is only in it's third year in action, so there wasn't a lot out there in terms of discussion about it, or advice for people going into it. So I'm writing this post with my experiences of it for:
 
@@ -14,6 +14,10 @@ I've just finished the first semester of my university course [Computational Pro
 I had a pretty good CV going into the course. Competitive programming helped me hugely. Do some if you're not doing it already; if it's not too late, do the [AIPO](http://aipo.computing.dcu.ie/). You'll also get more information about the course at the AIPO no doubt.
 
 My interview went very well. There were 2 interview rooms running in parallel, and 3 days of interviews, so other people had different experiences. However, the problem I was asked was remarkably straight-forward. If it were a problem at a programming competition, almost every competitor would solve it. I'm not sure if I'm allowed to share what it was exactly, as they might be planning on re-using the same questions for future interviews. If they are, you're good. It was a fair question for a pre-uni programmer.
+
+If you're looking to stay on campus, put Hampstead higher in your preferences than Larkfield. In Larkfield, there are two bedrooms sharing a tiny kitchen and a tiny bathroom. In Hampstead, there are 5 bedrooms, each with their own bathroom, and all sharing a very reasonably sized sitting room and kitchen. Choose #TeamHampstead.
+
+As a sidenote, staying on campus is *great*.
 
 # Ar an gCúrsa
 
@@ -29,6 +33,4 @@ The course content is pretty good. There are a few modules that aren't that exci
 
 1. Document everything during your sprints. Document your code, document your research, document your documentation. If your demo at the end of the sprint is a flop (like mine was), let your documentation show that you *did* put the work in, and don't just let them take your word for it.
 
-1.	If you're looking to stay on campus, put Hampstead higher in your preferences than Larkfield. In Larkfield, there are two bedrooms sharing a tiny kitchen and a tiny bathroom. In Hampstead, there are 5 bedrooms, each with their own bathroom, and all sharing a very reasonably sized sitting room and kitchen. Choose #TeamHampstead.
-
-1.	Don't drop out. Do cool projects in your free time. Get those sexy [little green squares](http://github.com/iandioch?tab=contributions) on your Github. Join Redbrick. Start looking for summer internships from the second week. Make a one-page CV. Install [linux](../../../../tags/linux.html) on your first day and use it exclusively from then on. Keep up with [programming news](http://news.ycombinator.com). Do online programming problems (I recommend [Project Euler](../../../../tags/project euler.html)). [Be so good they can't ignore you](http://en.wikipedia.org/wiki/Steve_Martin). Bring pride to the CPSTD master race. [Follow me on Twitter](http://twitter.com/iandioch).
+1.	Don't drop out. Do cool projects in your free time. Get those sexy [little green Github squares](http://github.com/iandioch?tab=contributions). Join [Redbrick](http://www.redbrick.dcu.ie/) and get on committee. Make a one-page CV. Get rid of the second page you sneakily added and *make it one page*. Start looking for summer internships from the second week. Install [linux](../../../../tags/linux.html) on your first day and use it exclusively from then on. Get in contact with the older years of CPSSDs (and brickies) and leech onto them for knowledge and gossip in equal parts. Keep up with [programming news](http://news.ycombinator.com). Do online programming problems (I recommend [Project Euler](../../../../tags/project euler.html)). Worship the gods of CPSSD ([God #1](https://twitter.com/TheLukeyB_), [God #2](http://vim.org)). *[Be so good they can't ignore you](http://en.wikipedia.org/wiki/Steve_Martin)*. Bring pride to the CPSTD master race. [Follow me on Twitter](http://twitter.com/iandioch).
