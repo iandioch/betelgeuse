@@ -84,7 +84,7 @@ func runJavascript(script string, currId int, posts []PostData) (string, interfa
 	response := ""
 
 	vm.Set("echo", func(call otto.FunctionCall) otto.Value {
-	    fmt.Printf("Script echo: %s\n", call.Argument(0).String())
+	    //fmt.Printf("Script echo: %s\n", call.Argument(0).String())
 	    response += call.Argument(0).String()
 	    return otto.Value{}
 	})
@@ -143,7 +143,7 @@ func main() {
 
 		entry.ContentLines = unParsedLines
 
-		fmt.Println(postMeta)
+		//fmt.Println(postMeta)
 		metaData, err := decodeYAMLMetaData(postMeta)
 
 		if err != nil {
@@ -265,7 +265,7 @@ func main() {
 		}
 	}
 
-	fmt.Println(tagPageGenerator)
+	//fmt.Println(tagPageGenerator)
 
 	indexGenerator := readFile("templates/index.js");
 	html, err := runJavascript(indexGenerator, -1, allPostData);
