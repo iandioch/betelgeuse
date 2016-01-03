@@ -268,15 +268,15 @@ func main() {
 	//fmt.Println(tagPageGenerator)
 
 	indexGenerator := readFile("templates/index.js");
-	html, err := runJavascript(indexGenerator, -1, allPostData);
+	html, err := runJavascript(indexGenerator, -1, allPostData)
 	if err != nil {
-		panic(err);
-		return;
+		panic(err)
+		return
 	}
-	err = ioutil.WriteFile("site/index.html", []byte(html), 0666);
+	err = ioutil.WriteFile("site/index.html", []byte(html), 0666)
 	if err != nil {
-		panic(err);
-		return;
+		panic(err)
+		return
 	}
 
 	/*for _, file := range files {

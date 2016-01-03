@@ -1,5 +1,5 @@
 echo("<!doctype HTML>")
-echo("<html><head><meta charset=\"utf-8\"/><title>Noah's Blog</title><link href='https://fonts.googleapis.com/css?family=Slabo+27px&subset=latin,latin-ext' rel='stylesheet' type='text/css'><link rel=\"stylesheet\" type=\"text/css\" href=\"../styles/stylesheet.css\"></head>");
+echo("<html><head><meta charset=\"utf-8\"/><title>Noah's Blog</title><link href='https://fonts.googleapis.com/css?family=Slabo+27px&subset=latin,latin-ext' rel='stylesheet' type='text/css'><link rel=\"stylesheet\" type=\"text/css\" href=\"styles/stylesheet.css\"></head>");
 echo("<body>");
 echo("<div class=\"title\"><h1>NOAH'S BLOG</h1></div>");
 echo("<div class=\"page-content\">");
