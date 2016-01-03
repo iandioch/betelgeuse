@@ -1,7 +1,8 @@
 echo("<!doctype HTML>")
-echo("<html><head><meta charset=\"utf-8\"/><title>Noah's Blog</title><link rel=\"stylesheet\" type=\"text/css\" href=\"../styles/stylesheet.css\"></head>");
+echo("<html><head><meta charset=\"utf-8\"/><title>Noah's Blog</title><link href='https://fonts.googleapis.com/css?family=Slabo+27px&subset=latin,latin-ext' rel='stylesheet' type='text/css'><link rel=\"stylesheet\" type=\"text/css\" href=\"../styles/stylesheet.css\"></head>");
 echo("<body>");
-echo("<h1>Noah's Blog</h1>");
+echo("<div class=\"title\"><h1>NOAH'S BLOG</h1></div>");
+echo("<div class=\"page-content\">");
 echo("<p>Recent posts:</p>");
 echo("<ul>");
 for(var i = posts.length-1; i > posts.length-11 && i >= 0; i --){
@@ -40,6 +41,6 @@ for(var i = posts.length-1; i > posts.length-11 && i >= 0; i --){
 	echo("</ul>");
 	echo("</li>");
 }
-echo("</ul>")
+echo("</ul></div>")
 echo("</body>");
 echo("</html>");
