@@ -1,5 +1,5 @@
 ---
-title: Christmas break
+title: Christmas Break
 categories: ["updates"]
 tags: ["christmas", "programming", "project euler"]
 ---

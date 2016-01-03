@@ -1,5 +1,5 @@
 ---
-title: NWERC, baby!
+title: NWERC, Baby!
 categories: ["updates"]
 tags: ["nwerc", "programming", "competitions", "redbrick"]
 ---
