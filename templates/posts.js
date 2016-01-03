@@ -4,17 +4,19 @@ echo("<body>");
 echo("<h1>");
 echo(posts[currId].Meta.Title);
 echo("</h1>");
-echo("<h3>" + posts[currId].Location + "</h3>");
-echo("<p>");
+echo("<div class=\"post-content\"><p>");
 echo(posts[currId].ParsedContent);
-echo("</p>")
+echo("</p></div>");
+echo("<div class=\"post-links\">");
 if(currId > 0){
 	echo("<p>Previous post: <a href=\"../../../../" + posts[currId-1].Location +"\">" + posts[currId-1].Meta.Title + "</a></p>")
 }
 if(currId < posts.length - 1){
 	echo("<p>Next post: <a href=\"../../../../" + posts[currId+1].Location +"\">" + posts[currId+1].Meta.Title + "</a></p>")
 }
+echo("</div>");
 if(posts[currId].Meta.Categories.length > 0){
+	echo("<div class=\"footer-meta\">");
 	echo("<p>This entry was posted on " + posts[currId].Date.Day + "/" + posts[currId].Date.Month +"/" + posts[currId].Date.Year + " in the following categories:");
 	echo("<ul>");
 	for (var i = 0; i < posts[currId].Meta.Categories.length; i ++) {
@@ -22,6 +24,7 @@ if(posts[currId].Meta.Categories.length > 0){
 	}
 	echo("</ul>");
 	echo("</p>");
+	echo("</div>")
 }
 echo("</body>");
 echo("</html>");
