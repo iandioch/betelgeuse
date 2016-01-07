@@ -39,6 +39,7 @@ if(currId > 0){
 if(currId < posts.length - 1){
 	echo("<p>Next post: <a href=\"../../../../" + posts[currId+1].Location +"\">" + posts[currId+1].Meta.Title + "</a></p>")
 }
+echo("<p>Go <a href=\"../../../../index.html\">back to index</a></p>");
 echo("</div>");
 echo("</body>");
 echo("</html>");
