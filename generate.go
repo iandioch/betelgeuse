@@ -98,19 +98,27 @@ func runJavascript(script string, currId int, posts []PostData) (string, interfa
 }
 
 func main() {
-	files := getFilesInDirRecursive("posts")
-
-	fmt.Println(files)
-
-	//postTemplate := readFile("templates/posts.html")
+	postDirFiles := getFilesInDirRecursive("posts")
 
 	postGenerator := readFile("templates/posts.js")
 	tagPageGenerator := readFile("templates/tag.js")
 	categoryPageGenerator := readFile("templates/category.js")
 
-	allPostData := make([]PostData, len(files))
+	postFiles := []string{}
+	postAssetFiles := []string{}
+	for _, file := range postDirFiles{
+		if file[len(file)-3:] == ".md" {
+			postFiles = append(postFiles, file)
+		}else{
+			postAssetFiles = append(postAssetFiles, file)
+		}
+	}
 
-	for index, file := range files {
+	fmt.Println(len(postFiles), "posts found, with", len(postAssetFiles), "additional assets.")
+
+	allPostData := make([]PostData, len(postFiles))
+
+	for index, file := range postFiles {
 		raw := readFile(file)
 		lines := strings.Split(raw, "\n")
 
