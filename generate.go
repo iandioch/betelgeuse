@@ -209,6 +209,23 @@ func main() {
 		}
 	}
 
+	for _, origFile := range postAssetFiles {
+		outFile := "site/" + origFile
+		outDir := outFile[0:strings.LastIndex(outFile, "/")]
+
+		fileData := readFile(origFile)
+		err:= os.MkdirAll(outDir, 0777)
+		if err != nil {
+			fmt.Println(err)
+		}
+		err = ioutil.WriteFile(outFile, []byte(fileData), 0666)
+		if err == nil {
+			fmt.Println("Asset file '" + outFile + "' written.")
+		}else{
+			fmt.Println(err)
+		}
+	}
+
 	categories := make(map[string][]PostData)
 	tags := make(map[string][]PostData)
 
