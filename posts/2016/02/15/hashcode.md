@@ -12,7 +12,7 @@ In the end, we came 120th out of a little over 1000 teams on the scoreboard; I w
 
 I'm delighted, team `cat /dev/urandom >> solution.cpp` beat the twins in second year of CPSSD for the first time, I got a Google badge, and I learned a little bit about 'bin packing'!
 
-The Openet de/coding event is on Thursday week, and then there's the NUIG Compsoc hackathon at the beginning of next month, then my own programming competition. Plus, myself and [http://github.com/cianlr](Cian) will be giving a talk titled 'Competitive Programming = Money' today, to open [Techweek](http://techweek.dcu.ie). I'm setting up a site [here](http://redbrick.dcu.ie/~cac/comp) to keep track of the competitive programming bits and bobs that might be of interest to Redbrick members too. I'm also helping out with the [AIPO](http://aipo.computing.dcu.ie) this weekend. No rest for the wicked!
+The Openet de/coding event is on Thursday week, and then there's the NUIG Compsoc hackathon at the beginning of next month, then my own programming competition. Plus, myself and [Cian](http://github.com/cianlr) will be giving a talk titled 'Competitive Programming = Money' today, to open [Techweek](http://techweek.dcu.ie). I'm setting up a site [here](http://redbrick.dcu.ie/~cac/comp) to keep track of the competitive programming bits and bobs that might be of interest to Redbrick members too. I'm also helping out with the [AIPO](http://aipo.computing.dcu.ie) this weekend. No rest for the wicked!
 
 Ádh mór leat,
 
