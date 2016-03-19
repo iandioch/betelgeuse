@@ -303,4 +303,15 @@ func main() {
 		panic(err)
 		return
 	}
+	rssGenerator := readFile("templates/rss.js");
+	rss, err := runJavascript(rssGenerator, -1, allPostData)
+	if err != nil{
+		panic(err)
+		return
+	}
+	err = ioutil.WriteFile("site/rss", []byte(rss), 0666)
+	if err != nil{
+		panic(err)
+		return
+	}
 }
