@@ -1,7 +1,7 @@
 echo("<!doctype HTML>")
 echo("<html><head><meta charset=\"utf-8\"/><title>Noah Donnelly</title><link href='https://fonts.googleapis.com/css?family=Slabo+27px&subset=latin,latin-ext' rel='stylesheet' type='text/css'><link rel=\"stylesheet\" type=\"text/css\" href=\"styles/stylesheet.css\"></head>");
 echo("<body>");
-echo("<div class=\"title\"><h1>Noah \"The Rock\" Donnelly</h1><p>Hi, I'm Noah Donnelly, a programmer from Monaghan, Ireland. I'm studying <a href=\"tags/cpssd.html\">Computational Problem Solving & Software Development</a> in <a href=\"http://dcu.ie\">Dublin City University</a>. I'm the current secretary of <a href=\"http://redbrick.dcu.ie\">Redbrick</a>, DCU's Networking Society. I'm into languages, competitive programming, and poor films. See my CV <a href=\"https://docs.google.com/document/d/1Nl6RUxY6QRPBq0aYQ85JeKBV4yBSr4X-rNM6PbhoVP4/\">here</a>. Read about my <a href=\"categories/projects.html\">projects</a>, check out my <a href=\"http://github.com/iandioch\">Github</a>, and follow me on <a href=\"http://twitter.com/iandioch\">Twitter</a>.</p></div>");
+echo("<div class=\"title\"><h1>Noah \"The Rock\" Donnelly</h1><p>Hi, I'm Noah Donnelly, a programmer from Monaghan, Ireland. I'm studying <a href=\"tags/cpssd.html\">Computational Problem Solving & Software Development</a> in <a href=\"http://dcu.ie\">Dublin City University</a>. I'm the current secretary of <a href=\"http://redbrick.dcu.ie\">Redbrick</a>, DCU's Networking Society. I'm into languages, competitive programming, and poor films. See my CV <a href=\"https://docs.google.com/document/d/1Nl6RUxY6QRPBq0aYQ85JeKBV4yBSr4X-rNM6PbhoVP4/\">here</a>. Read about my <a href=\"categories/projects.html\">projects</a>, check out my <a href=\"http://github.com/iandioch\">Github</a>, and follow me on <a href=\"http://twitter.com/iandioch\">Twitter</a>.<br><a href=\"rss\">RSS</a></p></div>");
 echo("<div class=\"page-content\">");
 echo("<p>Recent posts:</p>");
 echo("<ul>");
@@ -42,6 +42,5 @@ for(var i = posts.length-1; i > posts.length-11 && i >= 0; i --){
 	echo("</li>");
 }
 echo("</ul></div>");
-echo("<a href=\"http://mycode.doesnot.run/rss\">RSS</a>")
 echo("</body>");
 echo("</html>");
