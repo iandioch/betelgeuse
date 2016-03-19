@@ -41,6 +41,7 @@ for(var i = posts.length-1; i > posts.length-11 && i >= 0; i --){
 	echo("</ul>");
 	echo("</li>");
 }
-echo("</ul></div>")
+echo("</ul></div>");
+echo("<a href=\"http://mycode.doesnot.run/rss\">RSS</a>")
 echo("</body>");
 echo("</html>");
