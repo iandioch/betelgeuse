@@ -1,40 +1,39 @@
 body{
-	background: #555;
-	text-align: center;
+	background: #CFE4E6;
+	text-align: left;
+    padding: 50px;
 }
 
 h1, h2, h3, h4, h5, h6, p, li{
-	color: #000;
+	color: #210613;
 	font-family: 'Slabo 27px', serif;
 }
 
 a{
-	color: #21b7a3;
+	color: #13223B;
 }
 
 a:visited{
-	color: #21b758;
+	color: #596566;
 }
 
 a:hover{
-	color: #2180b7;
+	color: #7B8485;
 }
 
 .page-content {
-	padding: 20px;
 	width: 70%;
-
-	margin-left: auto;
-	margin-right: auto;
-	background: #FFF;
 	text-align: justify;
-	/*border-radius: 8px;*/
 }
 
 .page-content img{
 	width: 50%;
 	text-align: center;
 	margin-left: 25%;
+}
+
+.page-content p{
+    color: #210613;
 }
 
 .img-caption {
@@ -52,17 +51,14 @@ a:hover{
 }
 
 .title {
-	width: 70%;
-	margin: auto;
-	background: #FFF;
-	padding: 1px 20px 1px 20px;
+	padding: 1px 20px 1px 00px;
 	margin-bottom: 10px;
 	text-align: left;
-
+    width: 70%;
 }
 
 .title h1{
-	font-size: 3em;
+	font-size: 5em;
 	font-weight: bold;
 	line-height: 1em;
 	padding: 0;
@@ -78,11 +74,9 @@ a:hover{
 }
 
 .post-links {
-	background: #FFF;
 	font-size: 1em;
-	text-align: center;
+	text-align: left;
 	width: 70%;
-	margin: auto;
 	margin-top: 10px;
 	padding: 1px 20px 1px 20px;
 }
