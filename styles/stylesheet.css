@@ -21,6 +21,11 @@ a:hover{
 	color: #7B8485;
 }
 
+code{
+    font-family: monospace;
+    background: #FFF;
+}
+
 .page-content {
 	width: 70%;
 	text-align: justify;
