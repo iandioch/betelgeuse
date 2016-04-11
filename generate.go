@@ -168,7 +168,7 @@ func main() {
 			postText += line + "\n"
 		}
 
-		allPostData[index].ParsedContent = string(blackfriday.MarkdownBasic([]byte(postText)))
+		allPostData[index].ParsedContent = string(blackfriday.MarkdownCommon([]byte(postText)))
 		allPostData[index].Location = strings.Replace(value.File, ".md", ".html", -1)
 
 		dateParts := strings.Split(allPostData[index].Location, "/")
