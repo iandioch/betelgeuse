@@ -1,3 +1,9 @@
+---
+title: Deutschland!
+categories: ["updates"]
+tags: ["travel"]
+---
+
 I'm on a Polskibus right now from Berlin to Poznan.
 
 I will be on a STEP internship in Google Zurich from the beginning of July. I cannot wait. Not only am I working with the big GOOG, but it's in a foreign country, with a different language, and stunning views. What more could a just-ex-freshman want?! Seeing as I don't start until July, and Zurich is a bit away, I opted to spend June taking the scenic route, travelling around some of the bits of Europe I haven't seen.
