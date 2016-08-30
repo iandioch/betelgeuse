@@ -1,3 +1,5 @@
+I don't use this any more, because of course rolling my own blog software was a bad idea. But it was fun while it lasted! You can see my new shiny blog [here](http://mycode.doesnot.run).
+
 # betelgeuse
 
 What better place for a programmer to keep their blog than in the same place they keep their code?
@@ -18,4 +20,5 @@ I want to create a simple and easy to use blog system for myself. I chose Go for
 
 ## Where
 
-A version of the blog is live at http://mycode.doesnot.run.
+The void of the dead web.
+
